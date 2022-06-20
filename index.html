@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+
+    <title>FlyingFingers</title>
+  </head>
+  <body>
+    <header class="header" id="header">
+      <div class="container">
+        <div class="header__inner">
+          <div class="header__logo">
+            <img class="logo_inner" src="./img/logo1.png"/><span class="logoName">Flying Fingers</span></a>         
+        </div>
+      </div>
+    </header>
+
+<!--Keyboard-->
+
+    <div class="Keyboard" id="showKeyboard" style="visibility: ;">   
+      
+<!--Normal keys-->
+
+      <div class="keyboard__default">
+
+<!--ROW ` 1 2 3 4 5 6 7 8 9 0 - = backSPASE-->
+
+        <div class="row">
+          <i class="keyboard__key__192" id="Backquote">
+            <div class="c0">
+              <span class="keyboard__container">
+                <span>`</span>
+              </span>
+            </div>
+          </i>
+
+          <i class="keyboard__key__49" id="Digit1">
+            <div class="c1">
+              <span class="keyboard__container" id="one">
+                <span>1</span>
+              </span>
+            </div>
+          </i>
+
+          <i class="keyboard__key__50" id="Digit2">
+            <div class="c1">
+              <span class="keyboard__container">
+                <span>2</span>
+              </span>
+            </div>
+          </i>
+
+          <i class="keyboard__key__51" id="Digit3">
+            <div class="c2">
+              <span class="keyboard__container">
+                <span>3</span>
+              </span>
+            </div>
+          </i>
+
+          <i class="keyboard__key__52" id="Digit4">
+            <div class="c3">
+              <span class="keyboard__container">
+                <span>4</span>
+              </span>
+            </div>
+          </i>
+
+          <i class="keyboard__key__53" id="Digit5">
+            <div class="c4">
+              <span class="keyboard__container">
+                <span>5</span>
+              </span>
+            </div>
+          </i>
+
+          <i class="keyboard__key__54" id="Digit6">
+            <div class="c4">
+              <span class="keyboard__container">
+                <span>6</span>
+              </span>
+            </div>
+          </i>
+
+          <i class="keyboard__key__55" id="Digit7">
+            <div class="c5">
+              <span class="keyboard__container">
+                <span>7</span>
+              </span>
+            </div>
+          </i>
+
+          <i class="keyboard__key__56" id="Digit8">
+            <div class="c3">
+              <span class="keyboard__container">
+                <span>8</span>
+              </span>
+            </div>
+          </i>
+
+          <i class="keyboard__key__57" id="Digit9">
+            <div class="c2">
+              <span class="keyboard__container">
+                <span>9</span>
+              </span>
+            </div>
+          </i>
+
+          <i class="keyboard__key__48" id="Digit0">
+            <div class="c1">
+              <span class="keyboard__container">
+                <span>0</span>
+              </span>
+            </div>
+          </i>
+
+          <i class="keyboard__key__189" id="Minus">
+            <div class="c1">
+              <span class="keyboard__container">
+                <span>–</span>
+              </span>
+            </div>
+          </i>
+
+          <i class="keyboard__key__187" id="Equal">
+            <div class="c1">
+              <span class="keyboard__container">
+                <span>=</span>
+              </span>
+            </div>
+          </i>
+
+          <i class="keyboard__key__1008" id="Backspace">
+            <div class="kBack">
+              <span class="keyboard__container">
+                <span>←</span>
+              </span>
+            </div>
+          </i>
+        </div>
+
+<!--ROW Tab q w e r t y u i o p [ ] \-->
+
+        <div class="row">
+          <i class="keyboard__key__1009" id="Tab">
+            <div class="kTab">
+              <span class="keyboard__container">
+                <span>Tab</span>
+              </span>
+            </div>
+          </i>
+
+          <i class="keyboard__key__81" id="KeyQ">
+            <div class="c1">
+              <span class="keyboard__container">
+                <span>q</span>
+              </span>
+            </div>
+          </i>
+
+          <i class="keyboard__key__87" id="KeyW">
+            <div class="c2">
+              <span class="keyboard__container">
+                <span>w</span>
+              </span>
+            </div>
+          </i>
+
+          <i class="keyboard__key__69" id="KeyE">
+            <div class="c3">
+              <span class="keyboard__container">
+                <span>e</span>
+              </span>
+            </div>
+          </i>
+
+          <i class="keyboard__key__82" id="KeyR">
+            <div class="c4">
+              <span class="keyboard__container">
+                <span>r</span>
+              </span>
+            </div>
+          </i>
+
+          <i class="keyboard__key__84" id="KeyT">
+            <div class="c4 a">
+              <span class="keyboard__container">
+                <span>t</span>
+              </span>
+            </div>
+          </i>
+
+          <i class="keyboard__key__89" id="KeyY">
+            <div class="c5">
+              <span class="keyboard__container">
+                <span>y</span>
+              </span>
+            </div>
+          </i>
+
+          <i class="keyboard__key__85" id="KeyU">
+            <div class="c5">
+              <span class="keyboard__container">
+                <span>u</span>
+              </span>
+            </div>
+          </i>
+
+          <i class="keyboard__key__73" id="KeyI">
+            <div class="c3">
+              <span class="keyboard__container">
+                <span>i</span>
+              </span>
+            </div>
+          </i>
+
+          <i class="keyboard__key__79" id="KeyO">
+            <div class="c2">
+              <span class="keyboard__container">
+                <span>o</span>
+              </span>
+            </div>
+          </i>
+
+          <i class="keyboard__key__80" id="KeyP">
+            <div class="c1">
+              <span class="keyboard__container">
+                <span>p</span>
+              </span>
+            </div>
+          </i>
+
+          <i class="keyboard__key__219" id="BracketLeft">
+            <div class="c1">
+              <span class="keyboard__container">
+                <span>[</span>
+              </span>
+            </div>
+          </i>
+
+          <i class="keyboard__key__221" id="BracketRight">
+            <div class="c1">
+              <span class="keyboard__container">
+                <span>]</span>
+              </span>
+            </div>
+          </i>
+
+          <i class="keyboard__key__220" id="Backslash">
+            <div class="kSlash">
+              <span class="keyboard__container">
+                <span>\</span>
+              </span>
+            </div>
+          </i>
+        </div>
+
+<!--ROW Caps ф ы в а п р о л д ж э Enter-->
+
+        <div class="row">
+          <i class="keyboard__key__1020" id="CapsLock">
+            <div class="kCaps">
+              <span class="keyboard__container">
+                <span>Caps</span>
+              </span>
+            </div>
+          </i>
+
+          <i class="keyboard__key__65" id="KeyA">
+            <div class="c1">
+              <span class="keyboard__container">
+                <span>a</span>
+              </span>
+            </div>
+          </i>
+
+          <i class="keyboard__key__83" id="KeyS">
+            <div class="c2">
+              <span class="keyboard__container">
+                <span>s</span>
+              </span>
+            </div>
+          </i>
+
+          <i class="keyboard__key__68" id="KeyD">
+            <div class="c3">
+              <span class="keyboard__container">
+                <span>d</span>
+              </span>
+            </div>
+          </i>
+
+          <i class="keyboard__key__70" id="KeyF">
+            <div class="c4">
+              <span class="keyboard__container">
+                <span>f</span>
+              </span>
+            </div>
+          </i>
+
+          <i class="keyboard__key__71" id="KeyG">
+            <div class="c4">
+              <span class="keyboard__container">
+                <span>g</span>
+              </span>
+            </div>
+          </i>
+
+          <i class="keyboard__key__72" id="KeyH">
+            <div class="c5">
+              <span class="keyboard__container">
+                <span>h</span>
+              </span>
+            </div>
+          </i>
+
+          <i class="keyboard__key__74" id="KeyJ">
+            <div class="c5">
+              <span class="keyboard__container">
+                <span>j</span>
+              </span>
+            </div>
+          </i>
+
+          <i class="keyboard__key__75" id="KeyK">
+            <div class="c3">
+              <span class="keyboard__container">
+                <span>k</span>
+              </span>
+            </div>
+          </i>
+
+          <i class="keyboard__key__76" id="KeyL">
+            <div class="c2">
+              <span class="keyboard__container">
+                <span>l</span>
+              </span>
+            </div>
+          </i>
+
+          <i class="keyboard__key__186" id="Semicolon">
+            <div class="c1">
+              <span class="keyboard__container">
+                <span>;</span>
+              </span>
+            </div>
+          </i>
+
+          <i class="keyboard__key__222" id="Quote">
+            <div class="c1">
+              <span class="keyboard__container">
+                <span>'</span>
+              </span>
+            </div>
+          </i>
+
+          <i class="keyboard__key__1013" id="Enter">
+            <div class="kEnter">
+              <span class="keyboard__container">
+                <span>Enter</span>
+              </span>
+            </div>
+          </i>
+        </div>
+
+<!--ROW Shift я ч с м и т ь б ю . Shift-->
+
+        <div class="row">
+          <i class="keyboard__key__1016" id="ShiftLeft">
+            <div class="ShiftLeft">
+              <span class="keyboard__container">
+                <span>Shift</span>
+              </span>
+            </div>
+          </i>
+
+          <i class="keyboard__key__90" id="KeyZ">
+            <div class="c1">
+              <span class="keyboard__container">
+                <span>z</span>
+              </span>
+            </div>
+          </i>
+
+          <i class="keyboard__key__88" id="KeyX">
+            <div class="c2">
+              <span class="keyboard__container">
+                <span>x</span>
+              </span>
+            </div>
+          </i>
+
+          <i class="keyboard__key__67" id="KeyC">
+            <div class="c3">
+              <span class="keyboard__container">
+                <span>c</span>
+              </span>
+            </div>
+          </i>
+
+          <i class="keyboard__key__86" id="KeyV">
+            <div class="c4">
+              <span class="keyboard__container">
+                <span>v</span>
+              </span>
+            </div>
+          </i>
+
+          <i class="keyboard__key__66" id="KeyB">
+            <div class="c4">
+              <span class="keyboard__container">
+                <span>b</span>
+              </span>
+            </div>
+          </i>
+
+          <i class="keyboard__key__78" id="KeyN">
+            <div class="c5">
+              <span class="keyboard__container">
+                <span>n</span>
+              </span>
+            </div>
+          </i>
+
+          <i class="keyboard__key__77" id="KeyM">
+            <div class="c5">
+              <span class="keyboard__container">
+                <span>m</span>
+              </span>
+            </div>
+          </i>
+
+          <i class="keyboard__key__188" id="Comma">
+            <div class="c3">
+              <span class="keyboard__container">
+                <span>,</span>
+              </span>
+            </div>
+          </i>
+
+          <i class="keyboard__key__190" id="Period">
+            <div class="c2">
+              <span class="keyboard__container">
+                <span>.</span>
+              </span>
+            </div>
+          </i>
+
+          <i class="keyboard__key__191" id="Slash">
+            <div class="c1">
+              <span class="keyboard__container">
+                <span>/</span>
+              </span>
+            </div>
+          </i>
+
+          <i class="keyboard__key__1017" id="ShiftRight">
+            <div class="ShiftRight">
+              <span class="keyboard__container">
+                <span>Shift</span>
+              </span>
+            </div>
+          </i>
+        </div>
+
+<!--Space-->
+        
+        <div class="row">
+          <i class="keyboard__key__1032" id="Space">
+            <div class="kSpace">
+              <span class="keyboard__container">
+                <span> </span>
+              </span>
+            </div>
+          </i>
+        </div>
+      </div>      
+    </div>
+
+   
+  </body>
+</html>
