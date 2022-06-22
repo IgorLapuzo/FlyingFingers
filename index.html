@@ -11,15 +11,130 @@
     <header class="header" id="header">
       <div class="container">
         <div class="header__inner">
-          <div class="header__logo">
-            <img class="logo_inner" src="./img/logo1.png"/><span class="logoName">Flying Fingers</span></a>         
+
+          <div class="header__logo" data-scroll="#intro">
+            <img class="logo_inner" src="./img/logo1.png" alt="" /><span class="logoName">Flying Fingers</span></a>
+          </div>
+
+          <div class="nav" id="nav">            
+            <a class="nav__link" href="#modal__technics" data-scroll="#services">Техника печати</a>
+            <div id="modal__technics" class="wrapper">
+              <a class="substrate" href="#close__technics"></a>
+              <div class="block">
+                <a class="close" href="#close__technics">X</a>
+
+                <h2 class="technics__h2">Исходная позиция</h2>
+                <p class="technics__guide1">
+                  Немного согни пальцы и положи их на клавиши ФЫВА и ОЛДЖ, которые находятся в среднем
+                  ряду. Эта строка называется ОСНОВНОЙ СТРОКОЙ, потому что ты всегда будешь начинать с
+                  этих клавиш и возвращаться к ним. <br /><br />
+                  На клавишах А и О, под указательными пальцами, находятся небольшие выступы. Они
+                  позволяют ориентироваться на клавиатуре вслепую.
+                </p>
+
+                <h2 class="technics__h2">Схема клавиатуры</h2>
+                <br />
+                <img
+                  class="img__keyboard"
+                  width="600"
+                  src="./img/keyboard.png"
+                  title="Схема клавиатуры"
+                  alt="Схема клавиатуры"
+                />
+                <p class="technics__guide1">
+                  Цвет клавиш на этой клавиатуре поможет тебе понять и запомнить, каким пальцем на какую
+                  клавишу нужно нажимать.
+                </p>
+                <ul class="technics__guide1">
+                  <li>Нажимай клавиши только тем пальцем, который для них предназначен.</li>
+                  <br />
+                  <li>Всегда возвращай пальцы в исходную позицию «ФЫВА – ОЛДЖ».</li>
+                  <br />
+                  <li>Когда набираешь текст, представляй расположение клавиш.</li>
+                  <br />
+                  <li>
+                    Установи ритм и соблюдай его, пока печатаешь. Нажимай на клавиши с одинаковым
+                    интервалом.
+                  </li>
+                  <br />
+                  <li>
+                    Клавишу SHIFT всегда нажимает мизинец с противоположной стороны от нужной буквы.
+                  </li>
+                  <br />
+                  <li>Пробел отбивай большим пальцем левой или правой руки, как тебе удобнее.</li>
+                </ul>
+
+                <br />
+                <h2 class="technics__h2">Движения пальцев</h2>
+                <br />
+                <p class="technics__guide1">
+                  Не подглядывай на клавиатуру во время печати. Просто скользи пальцами по клавишам, пока
+                  не найдешь основную строку.<br /><br />
+                  Ограничь движение кистей и пальцев до минимума, только чтобы нажимать нужные клавиши.
+                  Держи руки и пальцы как можно ближе к исходной позиции. Это увеличит скорость набора
+                  текста и снизит нагрузку на кисти.
+                  <br /><br />
+                  Следи за безымянными пальцами и мизинцами, так как они часто остаются
+                  незадействованными.
+                </p>
+
+                <h2 class="technics__h2">Скорость печати</h2>
+                <br />
+                <ul class="technics__guide1">
+                  <li>
+                    Не пытайся сразу печатать со скоростью света. Начинай ускоряться, только когда все 10
+                    пальцев привыкнут нажимать правильные клавиши.
+                  </li>
+                  <br />
+                  <li>
+                    Не торопись когда печатаешь, чтобы избежать ошибок. Скорость будет возрастать
+                    постепенно.
+                  </li>
+                  <br />
+                  <li>Всегда просматривай текст на одно-два слова вперед.</li>
+                </ul>
+
+                <h2 class="technics__h2">Береги себя</h2>
+
+                <p class="technics__guide1">
+                  Сделай паузу, если чувствуешь, что сбиваешься и делаешь много ошибок. Небольшой перерыв
+                  вернет силы и внимательность.
+                </p>                
+              </div>
+            </div>            
+          </div>
+        </div>
+      </div>        
+    </header>
+
+    <div class="controls__elements">
+      <div class="container" id="showBoardItems" style="visibility: ">
+        <div class="mistakes">
+          <b id="errors">0</b>
+          <span>ОШИБОК</span>
+        </div>
+        <div class="symbol__speed">
+          <b id="speed__min">0</b>
+          <span>ЗН/МИН</span>
         </div>
       </div>
-    </header>
+    </div>
+
+    <!--Board-->
+    <div class="board">
+      <div class="board__text">
+        <a href="javascript:showhide('showBoardItems')">
+          <button class="start__typing" id="last" onclick="this.style.display='none';">
+            Начать печатать
+          </button>
+        </a>
+        <div class="mainTxt" id="myList"></div>
+      </div>
+    </div>
 
 <!--Keyboard-->
 
-    <div class="Keyboard" id="showKeyboard" style="visibility: ;">   
+    <div class="Keyboard" id="showKeyboard" style="visibility: ">   
       
 <!--Normal keys-->
 
@@ -479,6 +594,8 @@
       </div>      
     </div>
 
+<!--scripts-->
+    <script src="/src/index.js"></script>
    
   </body>
 </html>
