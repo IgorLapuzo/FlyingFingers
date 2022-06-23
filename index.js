@@ -1,18 +1,172 @@
 // Массив всех текстов
 let textStock = [
-  'Для современного мира выбранный нами инновационный путь однозначно определяет каждого участника как способного принимать собственные решения касаемо приоритизации разума над эмоциями. Противоположная точка зрения подразумевает, что независимые государства будут представлены в исключительно положительном свете.',
-  'С улыбкой, потому что муж - каменная стена. А изнутри еще и с подогревом. Стена окружает ее кольцом. Ей так удобно засыпать у него на плече, вдыхая запах его волос и кожи, чувствуя тепло его большого сильного тела. Она не допускает и мысли о том, что с ним что-нибудь может случиться.',
-  'Бросок, оглушительный взрыв, и щита больше не существовало. Обгоревшие тела трех ситов валялись рядом с разбитым генератором поля. Я вложил в кобуру пистолет и, выйдя в другую комнату, вызвал охрану. Взвод бойцов прибыл секунд через двадцать.',
-  'Вокруг нас простиралось бесконечное степное море. Трава, мелкие синие цветочки, чахлые кустики. Воздух тихо звенел - какие-то насекомые устроили вечерний концерт. Из-под ног иногда вспархивали птицы. Настоящий рай для энтомологов и орнитологов, желающих изучить степь в ее первозданном виде.',
-  'Лориклаксоз, громко топая сапогами, убрался вон, а Гриша кинулся к блюду. Не сказать, чтобы он был силен в иностранных языках, но отдельные слова разобрать мог. Вот если бы они еще были напечатаны... Насладившись звуками знакомой, но малопонятной речи, Гриша принялся барабанить по блюду на все лады.',
-  'Ворона хотела сделать еще один заход, но мужчина уже ушел слишком далеко. Оно и понятно, ему было не до ворон. Он торопился к своей возлюбленной. Торопился, потому что знал, она ждет его. И обязательно захочет его поцеловать, едва он переступит порог ее небольшой, но такой уютной квартирки.',
-  'Сергей прислушался - из детской комнаты доносились смех и веселая возня. "Маша... Ма-аша! Я же сказала - не трожь. Не трожь, говорю!" - Голос старшенькой, Саши, был требовательно-назидательным. Раздался звучный шлепок и тут же обиженный рев младшенькой Маши.',
-  'После долгого и бесплодного ожидания я решил написать тебе сам, и ради тебя, и ради меня: не хочу вспоминать, что за два долгих года, проведенных в заключении, я не получил от тебя ни одной строчки, до меня не доходили ни послания, ни вести о тебе, кроме тех, что причиняли мне боль.',
-  'Брат сыграет роль наживки, он выбежит из леса, словно волк на охотника. Колл Омсворд во власти злых чар, он раб темной силы, из ее магической ткани соткан его плащ. Беглец похитил плащ, закутавшись в него, чтобы остаться неузнанным, но именно этого и добивался Риммер Дэлл.',
-  'Фотомонтаж из нескольких снимков тоже был выполнен на уровне - скупо, но эффектно, ничего не выпячивается, но все как на ладони. Пять Манхаринов, застывших тесным кольцом, чуть ли не спина к спине, и пять механических монстров вокруг.',
-  'Пуго ответил не сразу - Гик, конечно, свой в доску, но язык при нем распускать не стоит. Да и было бы из-за чего - да, постоялец мрачноватый, но человек проверенный, и пакостей от него пока не было. Частенько здесь останавливается, да и друзья его тоже нередко заглядывают',
-  'Лететь им предстояло на древнем спин-звездолете "Олег", ржавом корыте без искусственной гравитации, иллюминаторов и прогулочных палуб. Чтобы удержать пассажиров в гамаках и на фуга-ложах, фантопликаторы подключили прямо к информационной сети.',
+  'English texts for beginners  online and for free. both improve your',
+  'to practice reading and comprehension',
+  'Practicing your comprehension of written English will',
+  'vocabulary and understanding of grammar and word order.',
 ];
 
 // Глобальные переменные
 let mainTxt = document.querySelector('.mainTxt');
+let randomText = textStock[getRandomInt(0, textStock.length - 1)].split('');
+let symbolIndex = 0;
+let sumErrors = 0;
+let timeHasGone = 0;
+let sumTime = 0;
+let amountOfTime = 0;
+
+// Функия отправляет рандомное число от 0 до числа последнего текста
+function getRandomInt(min, max) {
+  let minimum = Math.ceil(min);
+  let maximum = Math.floor(max);
+  return Math.floor(Math.random() * (maximum - minimum)) + minimum; //Максимум не включается, минимум включается
+}
+
+// Передает нужные данные для работы с клавиатурой и текстом при запуске (начать печатать)
+const newText = document.querySelector('.start__typing');
+newText.addEventListener('click', () => {
+  // Вывод текста посимвольно на табло
+  randomText.forEach((x) =>
+    mainTxt.insertAdjacentHTML('beforeend', `<span class="whiteTxt">${x}</span>`),
+  );
+
+  // Отправляет данные для работы панели ошибок и скорости печати
+  document.addEventListener('keyup', function (event) {
+    clickHandling(event.code);
+    timeBetweenClicks(event.code);
+  });
+});
+
+// Функция отображает клавиатуру и элемнты табло с текстом после нажатия кнопки (начать печатать)
+const showhide = (showBoardItems) => {
+  let BoardItems = document.getElementById(showBoardItems);
+  BoardItems.style.visibility = BoardItems.style.visibility == 'hidden' ? 'visible' : 'hidden';
+  document.getElementById('showKeyboard').style.visibility = 'visible';
+  inputСharСolor();
+};
+
+// Обработка нажимаемых клавиш и обработка ошибок
+const clickHandling = (smallKeys) => {
+  // классу "mainTxt" находит символ или букву по индексу
+  let textSymbol = mainTxt.childNodes[symbolIndex].textContent;
+  inputСharСolor(symbolIndex);
+
+  
+
+  // Обрабатывает символы и присваивает новый класс правильный символ = зеленый фон, неправильный красный и отсылает символ индекс чтобы можно было менять цвет для следующего символа на желтый
+  if (
+    smallKeys != 'ShiftLeft' &&
+    smallKeys != 'Space' &&
+    smallKeys != 'CapsLock' &&
+    smallKeys != 'Tab' &&
+    smallKeys != 'Enter' &&
+    smallKeys !== 'ShiftRight' &&
+    smallKeys != 'Backspace'
+  ) {
+    let charFromKeyboard = document
+      .getElementById(smallKeys)
+      .getElementsByTagName('span')
+      .item(1).textContent;
+    if (textSymbol === charFromKeyboard && keyboardStyle === false) {
+      mainTxt.childNodes[symbolIndex++].className = 'green__backgroud';
+      inputСharСolor(symbolIndex);
+    }
+    if (textSymbol === charFromKeyboard.toUpperCase() && keyboardStyle === true) {
+      mainTxt.childNodes[symbolIndex++].className = 'green__backgroud';
+      inputСharСolor(symbolIndex);
+    } else if (
+      textSymbol != charFromKeyboard ||
+      (keyboardStyle === true && textSymbol != charFromKeyboard.toUpperCase())
+    ) {
+      mainTxt.childNodes[symbolIndex].className = 'red__backgroud';
+      errorCounter(1);
+    }
+  } else if (smallKeys === 'Space' && textSymbol === ' ') {
+    let bigCharFromKeyboard = document
+      .getElementById(smallKeys)
+      .getElementsByTagName('span')
+      .item(1).textContent;
+    if ((textSymbol === bigCharFromKeyboard && keyboardStyle === false) || keyboardStyle === true) {
+      mainTxt.childNodes[symbolIndex++].className = 'green__backgroud';
+      inputСharСolor(symbolIndex);
+    }
+  }
+};
+
+
+// Обработчик KEYDOWN
+document.addEventListener('keydown', (event) => {
+  if (!event.repeat) {
+    backLight(event);
+  }
+  if (
+    event.code === 'CapsLock' &&
+    document.getElementById('one').getElementsByTagName('span').item(0).innerHTML === '!'
+  ) {
+    document.getElementById('showKeyboard').classList.toggle('text__transform');
+    swapSymbol(false);
+  } else if (
+    event.code === 'CapsLock' &&
+    document.getElementById('one').getElementsByTagName('span').item(0).innerHTML === '1'
+  ) {
+    document.getElementById('showKeyboard').classList.toggle('text__transform');
+    swapSymbol(true);
+  }
+});
+
+// Обработчик KEYUP
+document.addEventListener('keyup', (event) => {
+  backLight(event);
+  if (event.code == 'ShiftLeft' || event.code == 'ShiftRight') swapSymbol(false);
+});
+
+// Подсветка клавиш при клике
+function backLight(event) {
+  for (let key of document.querySelectorAll('.row i')) {
+    if (key.id === event.code) {
+      key.getElementsByTagName('div').item(0).classList.toggle('smallKeysSwapColor');
+    }
+    if (key.id === event.code && (event.code === 'ShiftLeft' || event.code === 'ShiftRight')) {
+      document.getElementById('showKeyboard').classList.toggle('text__transform');
+
+      swapSymbol(true);
+    }
+  }
+}
+
+// Функция заменяет символы на клавиатуре при нажатии шифт или капс
+function swapSymbol(checkShift) {
+  let changeableKeys = [
+    'Digit1',
+    'Digit2',
+    'Digit3',
+    'Digit4',
+    'Digit5',
+    'Digit6',
+    'Digit7',
+    'Digit8',
+    'Digit9',
+    'Digit0',
+    'Minus',
+    'Equal',
+    'Slash',
+  ];
+  let secondTypeOfKeys = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '?'];
+  let firstTypeOfKeys = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', '/'];
+  let i = 0;
+
+  changeableKeys.forEach(
+    (x) =>
+      (document.getElementById(x).getElementsByTagName('span').item(1).textContent = `${
+        checkShift ? secondTypeOfKeys[i++] : firstTypeOfKeys[i++]
+      }`),
+  );
+}
+
+
+
+  
+
+
+
+

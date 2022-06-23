@@ -126,7 +126,7 @@ h6 {
 
 .logo_inner {
   position: relative;
-  width: 80px;
+  width: 60px;
 }
 
 .header__logo {
@@ -139,7 +139,7 @@ h6 {
 
 .logoName {
  position: relative;
- top: -33px;
+ top: -20px;
  left: 20px;
 }
 
@@ -412,4 +412,36 @@ div.swapColor {
   background-color: #0084ff;
 }
 
+.whiteTxt {
+  white-space: pre-wrap;
+}
+
+.yellow__backgroud {
+  background-color: #e4ff16;
+  white-space: pre-wrap;
+  border-radius: 3px;
+}
+
+.green__backgroud {
+  white-space: pre-wrap;
+  color: #02ff39;
+}
+
+.red__backgroud {
+  white-space: pre-wrap;
+  background-color: #e90a0a;
+
+  border-radius: 3px;
+}
+
+.kSpace {
+  width: 409px !important;
+  margin: 1px 0 1px 0 !important;
+  float: none !important;
+  background-color: #0084ff;
+}
+
+.smallKeysSwapColor {
+  background-color: rgb(255, 255, 255) !important;
+}
 
