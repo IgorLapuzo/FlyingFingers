@@ -37,7 +37,8 @@ newText.addEventListener('click', () => {
   });
 });
 
-// Функция отображает клавиатуру и элемнты табло с текстом после нажатия кнопки (начать печатать)
+
+// Функция отображает клавиатуру и элементы табло с текстом после нажатия кнопки (начать печатать)
 const showhide = (showBoardItems) => {
   let BoardItems = document.getElementById(showBoardItems);
   BoardItems.style.visibility = BoardItems.style.visibility == 'hidden' ? 'visible' : 'hidden';
@@ -51,7 +52,8 @@ const clickHandling = (smallKeys) => {
   let textSymbol = mainTxt.childNodes[symbolIndex].textContent;
   inputСharСolor(symbolIndex);
 
-  
+  // Если шифт или капс зачат(true) классу "Keyboard" добавляется класс "keyboardStyle" это изменяет вводимые буквы на большие и заменяет символы
+  document.querySelector('.text__transform') ? (keyboardStyle = true) : (keyboardStyle = false);
 
   // Обрабатывает символы и присваивает новый класс правильный символ = зеленый фон, неправильный красный и отсылает символ индекс чтобы можно было менять цвет для следующего символа на желтый
   if (
@@ -93,6 +95,28 @@ const clickHandling = (smallKeys) => {
   }
 };
 
+// Функция подсвечивает следующий символ желтым
+const inputСharСolor = (symbolIndex) => {
+  if (symbolIndex < mainTxt.childNodes.length) {
+    mainTxt.childNodes.item(symbolIndex).className = 'yellow__backgroud';
+  }
+  endOfText(symbolIndex);
+};
+
+// Функция показывает сумму ошибок
+const errorCounter = (err) => {
+  sumErrors += err;
+  document.getElementById('errors').textContent = sumErrors;
+  document.getElementById('mistake').getElementsByTagName('span').item(0).innerHTML = `${sumErrors}`;
+};
+
+// Функция показывает среднюю скорость котороя обновляется при клике
+const netAverageSpeed = (timeBetween) => {
+  amountOfTime += timeBetween;
+  document.getElementById('speed__min').textContent = Math.floor(
+    (symbolIndex / amountOfTime.toFixed(2)) * 60,
+  );
+};
 
 // Обработчик KEYDOWN
 document.addEventListener('keydown', (event) => {
@@ -162,6 +186,19 @@ function swapSymbol(checkShift) {
       }`),
   );
 }
+
+// Вывод таблички с результатом
+function endOfText(symbolIndex) {
+  if (symbolIndex === mainTxt.childNodes.length) {
+    document.getElementById('showResults').style.visibility = 'visible';
+    document.getElementById('speed').getElementsByTagName('span').item(0).innerHTML = `${
+      Math.floor(symbolIndex / amountOfTime.toFixed(2)) * 60
+    }`;
+  }
+}
+
+
+
 
 
 
