@@ -1,9 +1,10 @@
 // Массив всех текстов
 let textStock = [
-  'English texts for beginners  online and for free. both improve your',
-  'to practice reading and comprehension',
-  'Practicing your comprehension of written English will',
-  'vocabulary and understanding of grammar and word order.',
+  'We British love tea. We drink more tea per head of population than any other country in the world, except for Ireland. If you go to the Tea Council website, you will see a counter at the top of the page which shows how many cups of tea we have drunk so far today. By the end of the day, the counter will reach 165 million.',
+  'If you are as old as I am, you probably remember a Hollywood film called Singing in the Rain. That was Gene Kelly singing a song from that film. In the film he was indeed \'singing in the rain\', and \'dancing in the rain\' as well, and fooling around with an umbrella in the rain.',
+  'The Vikings made their attacks very quickly and without any warning. They were very cruel to the people of the towns they attacked, and they sometimes destroyed the towns by burning down the buildings. In some parts of Europe, the local kings would often fight against the Vikings',
+  'Most people know that the English language is spoken by many millions of people around the world. However, few people are aware of the history of the English language. Today, English is one language, but in some ways it is a mixture of many different languages.',
+  'There have been many great writers in the history of English literature, but there is no doubt about which writer was the greatest. Many people consider William Shakespeare to have been the best writer who ever lived. William Shakespeare was born in the town of Stratford, England, in the year 1564.',
 ];
 
 // Глобальные переменные
@@ -185,6 +186,51 @@ function swapSymbol(checkShift) {
         checkShift ? secondTypeOfKeys[i++] : firstTypeOfKeys[i++]
       }`),
   );
+}
+
+// Функция считает время между прошлым кликом и настоящим кликом в миллисекундах после добавляет нули если нужно. К примеру если время между кликами 16 мсек, к отправляемому премени добавляется 0.0 итог (0.016) чтобы максимально точно считать время
+function timeBetweenClicks(smallKeys) {
+  if (
+    smallKeys != 'ShiftLeft' &&
+    smallKeys !== 'ShiftRight' &&
+    smallKeys != 'CapsLock' &&
+    smallKeys != 'Tab' &&
+    smallKeys != 'Enter' &&
+    smallKeys != 'Backspace'
+  ) {
+    if (!timeHasGone) timeHasGone = new Date().getTime();
+    else {
+      let timeStopped = new Date().getTime();
+
+      sumTime = String(timeStopped - timeHasGone);
+      if (sumTime.length < 2) {
+        sumTime1 = '0.00' + sumTime;
+        netAverageSpeed(+sumTime1);
+      }
+      if (sumTime.length === 2) {
+        sumTime2 = '0.0' + sumTime;
+        netAverageSpeed(+sumTime2);
+      }
+      if (sumTime.length === 3) {
+        sumTime3 = '0.' + sumTime;
+        netAverageSpeed(+sumTime3);
+      }
+      if (sumTime.length === 4) {
+        sumTime4 = sumTime.split('');
+        firstELemet = sumTime4.shift();
+        sumTime4.unshift(firstELemet, '.');
+        netAverageSpeed(+sumTime4.join(''));
+      }
+      if (sumTime.length === 5) {
+        sumTime5 = sumTime.split('');
+        firstELemet2 = sumTime5.shift();
+        SecondELemet = sumTime5.shift();
+        sumTime5.unshift(firstELemet2, SecondELemet, '.');
+        netAverageSpeed(+sumTime5.join(''));
+      }
+      timeHasGone = timeStopped;
+    }
+  }
 }
 
 // Вывод таблички с результатом
